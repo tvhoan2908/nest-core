@@ -1,0 +1,34 @@
+# do not use "latest" here, if you want this to work in the future
+image: node:16.3-alpine
+
+services:
+  - docker:19.03.13-dind
+
+# global cache (apply for all jobs in all stages)
+cache:
+  key: ${CI_COMMIT_REF_SLUG} # only apply for current branch
+  paths:
+  - node_modules/
+
+stages:
+  - install
+  - linting
+
+# install npm dependencies so it'll be cache in subsequent jobs
+# note: we can't do this in linting stage as in that stage, 2 jobs run concurrently and both need node_modules
+install_dependencies:
+  stage: install
+  script:
+    - npm install
+
+# this job make sure commit message is conventional
+lint-commit-msg:
+  stage: linting
+  script:
+    - echo "$CI_COMMIT_MESSAGE" | npx commitlint
+
+# this job make sure code is linted
+lint-code:
+  stage: linting
+  script:
+    - npm run lint
