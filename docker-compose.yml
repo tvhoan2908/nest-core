@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  nest_core_db:
+    image: mysql:8
+    container_name: nest_core_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: nest_core_core
+      MYSQL_USER: hoantv
+      MYSQL_PASSWORD: 123456
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      - "6032:3306"
+    volumes:
+      - nest_core_dbdata:/var/lib/mysql
+    networks:
+      - nest_core_network
+
+  nest_core_phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: nest_core_phpmyadmin
+    links:
+      - nest_core_db
+    environment:
+      PMA_HOST: nest_core_db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: unless-stopped
+    ports:
+      - 8093:80
+    networks:
+      - nest_core_network
+  
+  nest_core_mongodb:
+    image: mongo:4.4
+    container_name: nest_core_mongodb
+    restart: unless-stopped
+    ports: 
+      - 27018:27017
+    networks: 
+      - nest_core_network
+
+volumes: 
+  nest_core_dbdata:
+    driver: local
+
+networks: 
+  nest_core_network:
+    driver: bridge
