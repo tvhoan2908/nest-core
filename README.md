@@ -8,6 +8,7 @@
 ## Installation
 ```bash
 $ npm install
+$ Copy file .env.example to .env and update value.
 ```
 
 ## Running app
