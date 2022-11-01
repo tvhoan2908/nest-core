@@ -36,6 +36,7 @@ lerna-debug.log*
 
 uploads/
 *.log
+.env
 .env.production
 .env.development
 .env.staging
