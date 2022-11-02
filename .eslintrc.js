@@ -34,5 +34,6 @@ module.exports = {
     "indent": "off",
     "max-len": ["error", { code: 200 }],
     "max-lines": ["error", { max: 500 }],
+    "newline-before-return": "error",
   },
 };

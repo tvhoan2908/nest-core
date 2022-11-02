@@ -28,4 +28,5 @@ export const env = {
       dbName: process.env.SLAVE_FIRST_DB_NAME || "nest_core_core",
     },
   },
+  logFoler: process.env.LOG_FOLDER || "logs/",
 };
