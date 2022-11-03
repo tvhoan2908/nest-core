@@ -44,6 +44,8 @@ export class UserController extends BaseController {
   @Get("/:id")
   @Permissions()
   async findOne(@Param("id", ParseIntPipe) id: number): Promise<IBaseResponse<boolean>> {
-    return null;
+    const response = await this.userService.findById(id);
+
+    return new ResponseEntity<IUserDto>(UserMapper.toDTO(response));
   }
 }

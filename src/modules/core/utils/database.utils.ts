@@ -15,11 +15,16 @@ export class DatabaseUtils {
     };
   }
 
-  static async findAndCount<T>(repository: Repository<T>, request: IBaseFilterRequest, query: FindOptionsWhere<T>): Promise<[T[], number]> {
+  static async findAndCount<T>(
+    repository: Repository<T>,
+    request: IBaseFilterRequest,
+    options: { query: FindOptionsWhere<T>; relations?: string[] },
+  ): Promise<[T[], number]> {
     const skip = (request.page - 1) * request.size;
 
     return repository.findAndCount({
-      where: query,
+      where: options.query,
+      relations: options?.relations,
       skip,
       take: request.size,
     });

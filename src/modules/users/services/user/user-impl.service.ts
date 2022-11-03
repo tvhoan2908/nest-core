@@ -50,10 +50,18 @@ export class UserImplService implements UserService {
   async findAll(request: FilterUserRequest): Promise<[User[], number]> {
     const query: FindOptionsWhere<User> = {};
 
-    return DatabaseUtils.findAndCount<User>(this.userRepository, request, query);
+    return DatabaseUtils.findAndCount<User>(this.userRepository, request, {
+      query,
+      relations: ["userRoles"],
+    });
   }
 
   findById(id: number): Promise<User> {
-    throw new Error("Method not implemented.");
+    return this.userRepository.findOne({
+      relations: ["userRoles"],
+      where: {
+        id,
+      },
+    });
   }
 }

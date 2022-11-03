@@ -1,3 +1,4 @@
+import { IBaseRelation } from "../../core/resources/base-relation.dto";
 import { EUserStatus } from "../constant/user.enum";
 
 export interface IUserDto {
@@ -9,5 +10,5 @@ export interface IUserDto {
   createdAt: Date;
   updatedAt: Date;
   lastLoginAt: Date;
-  roles: string[];
+  roles: IBaseRelation[];
 }
