@@ -23,6 +23,7 @@ describe("UserService", () => {
           useValue: {
             save: jest.fn(),
             find: jest.fn(),
+            findOne: jest.fn(),
           },
         },
       ],
