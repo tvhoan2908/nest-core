@@ -6,6 +6,18 @@ import { BeanUtils } from "../../core/utils/bean.utils";
 import { Match } from "../../core/validations/match.decorator";
 import { EUserStatus } from "../constant/user.enum";
 
+export interface IStoreUserRequest<T> {
+  username: string;
+  password: string;
+  confirmPassword: string;
+  fullName: string;
+  email: string;
+  status: EUserStatus;
+  rolesId?: number[];
+
+  toEntity(): T;
+}
+
 export class StoreUserRequest extends BaseStoreRequest<User> {
   @IsNotEmpty()
   username: string;
@@ -26,7 +38,7 @@ export class StoreUserRequest extends BaseStoreRequest<User> {
   @IsNotEmpty()
   status: EUserStatus;
 
-  rolesId: number[];
+  rolesId?: number[];
 
   async toEntity(): Promise<User> {
     const entity = new User();
