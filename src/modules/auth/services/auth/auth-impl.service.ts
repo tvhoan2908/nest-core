@@ -15,8 +15,11 @@ export class AuthImplService implements AuthService {
   ) {}
 
   getPermissionsByRolesId(rolesId: number[]): Promise<RolePermission[]> {
-    return this.permissionRepository.findBy({
-      roleId: In(rolesId),
+    return this.permissionRepository.find({
+      relations: ["permission"],
+      where: {
+        roleId: In(rolesId),
+      },
     });
   }
 
