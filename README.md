@@ -24,7 +24,7 @@ $ npm run start:dev
 $ npm run start:prod
 
 # make migration
-$ npm run make:migration ---path specific
+$ npm run make:migration specific path
 $ eg npm run make:migration databases/migrations/users/create-users-table
 
 # run migrate
@@ -42,7 +42,6 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 
-# run test file specific
-$ npm test --file specific
+# run test specific file 
 $ eg: npm test user.service.spec.ts
 ```
