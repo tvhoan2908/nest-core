@@ -8,6 +8,11 @@ export interface IBaseResponse<T> {
   pagination?: IBasePageable;
 }
 
+export interface IPaginationResponse<T> {
+  items: T[];
+  total: number;
+}
+
 export class ResponseEntity<T> implements IBaseResponse<T> {
   success = true;
   code = 200;

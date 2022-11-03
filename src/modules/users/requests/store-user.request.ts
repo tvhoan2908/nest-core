@@ -1,24 +1,11 @@
 import { IsNotEmpty, IsOptional } from "class-validator";
 import { User } from "../../../databases/entities/users/user.entity";
 import { HashUtils } from "../../auth/utils/hash.utils";
-import { BaseStoreRequest } from "../../core/requests/base-store.request";
 import { BeanUtils } from "../../core/utils/bean.utils";
 import { Match } from "../../core/validations/match.decorator";
-import { EUserStatus } from "../constant/user.enum";
+import { UpdateUserRequest } from "./update-user.request";
 
-export interface IStoreUserRequest<T> {
-  username: string;
-  password: string;
-  confirmPassword: string;
-  fullName: string;
-  email: string;
-  status: EUserStatus;
-  rolesId?: number[];
-
-  toEntity(): T;
-}
-
-export class StoreUserRequest extends BaseStoreRequest<User> {
+export class StoreUserRequest extends UpdateUserRequest {
   @IsNotEmpty()
   username: string;
 
@@ -29,16 +16,8 @@ export class StoreUserRequest extends BaseStoreRequest<User> {
   @Match("password", { message: "confirmPassword does not match." })
   confirmPassword: string;
 
-  @IsNotEmpty()
-  fullName: string;
-
   @IsOptional()
   email: string;
-
-  @IsNotEmpty()
-  status: EUserStatus;
-
-  rolesId?: number[];
 
   async toEntity(): Promise<User> {
     const entity = new User();
