@@ -1,0 +1,23 @@
+{
+  "apps": [
+    {
+      "name": "NEST_CORE_APP",
+      "script": "./dist/main.js",
+      "instances": 1,
+      "exec_mode": "cluster",
+      "watch": false,
+      "env": {
+        "ENV": "development",
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "ENV": "production",
+        "NODE_ENV": "production"
+      },
+      "env_staging": {
+        "ENV": "staging",
+        "NODE_ENV": "staging"
+      }
+    }
+  ]
+}

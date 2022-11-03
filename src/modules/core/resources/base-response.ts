@@ -7,3 +7,17 @@ export interface IBaseResponse<T> {
   data: T;
   pagination?: IBasePageable;
 }
+
+export class ResponseEntity<T> implements IBaseResponse<T> {
+  success = true;
+  code = 200;
+  data = null;
+  message: string = null;
+  pagination?: IBasePageable;
+
+  constructor(data: T, message?: string, pagination?: IBasePageable) {
+    this.data = data;
+    this.message = message;
+    this.pagination = pagination;
+  }
+}

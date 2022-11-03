@@ -30,7 +30,7 @@ module.exports = {
     "no-unused-vars": ["error", { "vars": "all" }],
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports-ts": 2,
-    'prettier/prettier': ['error', { singleQuote: false }],
+    'prettier/prettier': ['error', { singleQuote: false, endOfLine: "auto" }],
     "indent": "off",
     "max-len": ["error", { code: 200 }],
     "max-lines": ["error", { max: 500 }],

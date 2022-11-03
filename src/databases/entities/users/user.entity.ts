@@ -1,6 +1,7 @@
 import { EAccountType, EUserStatus } from "../../../modules/users/constant/user.enum";
-import { Column, Entity } from "typeorm";
+import { Column, Entity, OneToMany } from "typeorm";
 import { CoreEntity } from "../core/core.entity";
+import { UserRole } from "../acl/user_role";
 
 @Entity("users")
 export class User extends CoreEntity {
@@ -27,4 +28,7 @@ export class User extends CoreEntity {
 
   @Column({ name: "token_expired_at" })
   tokenExpiredAt: Date;
+
+  @OneToMany(() => UserRole, (userRole) => userRole.user)
+  userRoles: UserRole[];
 }

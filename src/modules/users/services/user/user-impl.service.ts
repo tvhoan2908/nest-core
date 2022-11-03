@@ -11,8 +11,11 @@ import { UserService } from "./user.service";
 export class UserImplService implements UserService {
   constructor(@InjectRepository(User) private userRepository: Repository<User>) {}
 
-  store(request: StoreUserRequest): Promise<boolean> {
-    throw new Error("Method not implemented.");
+  async store(request: StoreUserRequest): Promise<boolean> {
+    const entity = await request.toEntity();
+    await this.userRepository.save(entity);
+
+    return true;
   }
 
   update(request: UpdateUserRequest, id: number): Promise<boolean> {

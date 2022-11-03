@@ -29,4 +29,5 @@ export const env = {
     },
   },
   logFoler: process.env.LOG_FOLDER || "logs/",
+  jwtSecretKey: process.env.JWT_SECRET_KEY,
 };

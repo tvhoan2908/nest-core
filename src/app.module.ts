@@ -7,9 +7,10 @@ import { GlobalExceptionFilter } from "./modules/core/exceptions/global-exceptio
 import { LoggingInterceptor } from "./modules/core/interceptors/logging.interceptor";
 import { UsersModule } from "./modules/users/users.module";
 import { AclModule } from "./modules/acl/acl.module";
+import { AuthModule } from "./modules/auth/auth.module";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(OrmConfig), UsersModule, AclModule],
+  imports: [TypeOrmModule.forRoot(OrmConfig), UsersModule, AclModule, AuthModule],
   controllers: [],
   providers: [
     {

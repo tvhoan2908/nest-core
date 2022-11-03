@@ -41,3 +41,6 @@ uploads/
 .env.development
 .env.staging
 .env.test
+
+# pm2
+process.json

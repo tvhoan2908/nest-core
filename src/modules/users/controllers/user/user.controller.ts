@@ -1,18 +1,20 @@
 import { Body, Controller, Get, Inject, Param, ParseIntPipe, Post, Put, Query } from "@nestjs/common";
 import { ParseClassPipe } from "../../../core/pipes/parse-class.pipe";
-import { IBaseResponse } from "../../../core/resources/base-response";
+import { IBaseResponse, ResponseEntity } from "../../../core/resources/base-response";
 import { FilterUserRequest } from "../../requests/filter-user.request";
 import { StoreUserRequest } from "../../requests/store-user.request";
 import { UpdateUserRequest } from "../../requests/update-user.request";
 import { UserService } from "../../services/user/user.service";
 
-@Controller("user")
+@Controller("api/v1/users")
 export class UserController {
   constructor(@Inject(UserService) private userService: UserService) {}
 
   @Post()
   async store(@Body(ParseClassPipe) request: StoreUserRequest): Promise<IBaseResponse<boolean>> {
-    return null;
+    const response = await this.userService.store(request);
+
+    return new ResponseEntity<boolean>(response);
   }
 
   @Put("/:id")
