@@ -6,9 +6,10 @@ import { BadRequestExceptionFilter } from "./modules/core/exceptions/bad-request
 import { GlobalExceptionFilter } from "./modules/core/exceptions/global-exception.filter";
 import { LoggingInterceptor } from "./modules/core/interceptors/logging.interceptor";
 import { UsersModule } from "./modules/users/users.module";
+import { AclModule } from "./modules/acl/acl.module";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(OrmConfig), UsersModule],
+  imports: [TypeOrmModule.forRoot(OrmConfig), UsersModule, AclModule],
   controllers: [],
   providers: [
     {

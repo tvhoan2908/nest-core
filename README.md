@@ -9,6 +9,7 @@
 ```bash
 $ npm install
 $ Copy file .env.example to .env and update value.
+$ Run docker compose up
 ```
 
 ## Running app

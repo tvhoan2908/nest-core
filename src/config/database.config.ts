@@ -1,4 +1,9 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { Module } from "../databases/entities/acl/module";
+import { Permission } from "../databases/entities/acl/permission";
+import { Role } from "../databases/entities/acl/role";
+import { RolePermission } from "../databases/entities/acl/role_permission";
+import { UserRole } from "../databases/entities/acl/user_role";
 import { User } from "../databases/entities/users/user.entity";
 import { env } from "../env";
 
@@ -27,7 +32,7 @@ export const OrmConfig: TypeOrmModuleOptions = {
   migrations: ["dist/databases/migrations/**/*{.ts,.js}"],
   migrationsTableName: "migrations",
   maxQueryExecutionTime: 2000,
-  entities: [User],
+  entities: [User, Role, Module, UserRole, Permission, RolePermission],
 };
 
 export default OrmConfig;
