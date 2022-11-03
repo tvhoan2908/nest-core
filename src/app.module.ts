@@ -8,9 +8,10 @@ import { LoggingInterceptor } from "./modules/core/interceptors/logging.intercep
 import { UsersModule } from "./modules/users/users.module";
 import { AclModule } from "./modules/acl/acl.module";
 import { AuthModule } from "./modules/auth/auth.module";
+import { CommandsModule } from "./commands/commands.module";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(OrmConfig), UsersModule, AclModule, AuthModule],
+  imports: [TypeOrmModule.forRoot(OrmConfig), UsersModule, AclModule, AuthModule, CommandsModule],
   controllers: [],
   providers: [
     {

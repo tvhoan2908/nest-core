@@ -10,6 +10,8 @@
 $ npm install
 $ Copy file .env.example to .env and update value.
 $ Run docker compose up
+$ npm run migrate:up
+$ npm run cli init:db
 ```
 
 ## Running app

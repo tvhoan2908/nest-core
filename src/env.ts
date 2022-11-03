@@ -30,4 +30,7 @@ export const env = {
   },
   logFoler: process.env.LOG_FOLDER || "logs/",
   jwtSecretKey: process.env.JWT_SECRET_KEY,
+  rootAccount: process.env.ROOT_USERNAME,
+  rootPassword: process.env.ROOT_PASSWORD,
+  rootEmail: process.env.ROOT_EMAIL,
 };
