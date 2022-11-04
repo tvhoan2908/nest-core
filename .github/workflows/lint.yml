@@ -37,3 +37,4 @@ jobs:
         with:
           eslint: true
           eslint_extensions: ts
+          node-version: 16
