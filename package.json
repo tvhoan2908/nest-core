@@ -39,7 +39,7 @@
     "class-validator": "^0.13.2",
     "dayjs": "^1.11.6",
     "mysql2": "^2.3.3",
-    "nest-commander": "^3.2.0",
+    "nest-commander": "^3.3.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
