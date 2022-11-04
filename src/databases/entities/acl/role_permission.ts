@@ -5,6 +5,11 @@ import { Role } from "./role";
 
 @Entity("role_permission")
 export class RolePermission extends CoreEntity {
+  constructor(init?: Partial<RolePermission>) {
+    super();
+    Object.assign(this, init);
+  }
+
   @Column({ name: "role_id" })
   roleId!: number;
 

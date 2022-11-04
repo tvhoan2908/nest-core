@@ -1,8 +1,8 @@
-import { IStoreModuleRequest } from "../requests/module/store-module.request";
+import { IStoreModule } from "../types/module.type";
 import { PermissionConstant } from "./permission.constant";
 
 export class ModuleConstant {
-  static setup(): IStoreModuleRequest[] {
+  static setup(): IStoreModule[] {
     return [
       {
         name: "User",
