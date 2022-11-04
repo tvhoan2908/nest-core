@@ -1,5 +1,5 @@
 ## Description
-- Nest core project.
+- Project for Nest boilerplate.
 ## System Requirement
 - NodeJS 14 or higher.
 - Mysql 8.
